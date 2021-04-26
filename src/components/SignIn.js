@@ -12,20 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Twitty
-            </Link>
-            {' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+import Copyright from './Copyright';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -58,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignIn() {
+const SignIn = () => {
     const classes = useStyles();
 
     return (
@@ -72,7 +59,7 @@ export default function SignIn() {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <form className={classes.form} noValidate>
+                    <form className={classes.form}>
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -129,3 +116,5 @@ export default function SignIn() {
         </Grid>
     );
 }
+
+export default SignIn;
