@@ -65,7 +65,7 @@ const SignUp = () => {
         passwordConfirm: '',
     });
 
-    const inputHandler = (e) => {
+    const handleInput = (e) => {
         setInput({
             ...input,
             [e.target.name]: e.target.value,
@@ -82,7 +82,10 @@ const SignUp = () => {
         try {
             setError(null);
             setLoading(true);
-            await signUp(input.email, input.password);
+            const response = await signUp(input.email, input.password);
+            await response.user.updateProfile({
+                displayName: input.firstName + ' ' + input.lastName,
+            });
             history.push('/');
         } catch {
             setError('Failed to create an account');
@@ -116,7 +119,7 @@ const SignUp = () => {
                                         label="First Name"
                                         autoFocus
                                         value={input.firstName}
-                                        onChange={inputHandler}
+                                        onChange={handleInput}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -129,7 +132,7 @@ const SignUp = () => {
                                         name="lastName"
                                         autoComplete="lname"
                                         value={input.lastName}
-                                        onChange={inputHandler}
+                                        onChange={handleInput}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -142,7 +145,7 @@ const SignUp = () => {
                                         name="email"
                                         autoComplete="email"
                                         value={input.email}
-                                        onChange={inputHandler}
+                                        onChange={handleInput}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -154,9 +157,8 @@ const SignUp = () => {
                                         label="Password"
                                         type="password"
                                         id="password"
-                                        autoComplete="current-password"
                                         value={input.password}
-                                        onChange={inputHandler}
+                                        onChange={handleInput}
                                         inputProps={{ minLength: 6 }}
                                     />
                                 </Grid>
@@ -169,9 +171,8 @@ const SignUp = () => {
                                         label="Password confirm"
                                         type="password"
                                         id="passwordConfirm"
-                                        autoComplete="current-password"
                                         value={input.passwordConfirm}
-                                        onChange={inputHandler}
+                                        onChange={handleInput}
                                         inputProps={{ minLength: 6 }}
                                     />
                                 </Grid>
