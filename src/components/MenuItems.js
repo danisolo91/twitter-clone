@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -10,13 +10,13 @@ import LayersIcon from '@material-ui/icons/Layers';
 
 export const menuItems = (
     <div>
-        <ListItem button>
+        <ListItem button component={RouterLink} to="/home">
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />
         </ListItem>
-        <ListItem button>
+        <ListItem button component={RouterLink} to="/explore">
             <ListItemIcon>
                 <ShoppingCartIcon />
             </ListItemIcon>
