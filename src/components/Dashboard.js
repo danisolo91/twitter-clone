@@ -23,6 +23,7 @@ import MenuItems from './MenuItems';
 import Copyright from './Copyright';
 import Home from './Home';
 import Explore from './Explore';
+import Profile from './Profile';
 import useAuth from '../hooks/useAuth';
 
 const drawerWidth = 240;
@@ -177,6 +178,7 @@ const Dashboard = () => {
                     <Grid container spacing={3}>
                         <Route path="/home" component={Home} />
                         <Route path="/explore" component={Explore} />
+                        <Route path="/profile" component={Profile} />
                     </Grid>
                     <Box pt={4}>
                         <Copyright />
