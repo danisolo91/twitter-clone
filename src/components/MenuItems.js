@@ -8,37 +8,41 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 
-export const menuItems = (
-    <div>
-        <ListItem button component={RouterLink} to="/home">
-            <ListItemIcon>
-                <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button component={RouterLink} to="/explore">
-            <ListItemIcon>
-                <ShoppingCartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Explore" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Notifications" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <BarChartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Messages" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <LayersIcon />
-            </ListItemIcon>
-            <ListItemText primary="Profile" />
-        </ListItem>
-    </div>
-);
+const MenuItems = () => {
+    return (
+        <div>
+            <ListItem button component={RouterLink} to="/home">
+                <ListItemIcon>
+                    <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem button component={RouterLink} to="/explore">
+                <ListItemIcon>
+                    <ShoppingCartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Explore" />
+            </ListItem>
+            <ListItem button>
+                <ListItemIcon>
+                    <PeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Notifications" />
+            </ListItem>
+            <ListItem button>
+                <ListItemIcon>
+                    <BarChartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Messages" />
+            </ListItem>
+            <ListItem button component={RouterLink} to="/profile">
+                <ListItemIcon>
+                    <LayersIcon />
+                </ListItemIcon>
+                <ListItemText primary="Profile" />
+            </ListItem>
+        </div>
+    )
+};
+
+export default MenuItems;
