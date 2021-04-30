@@ -19,7 +19,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import Alert from '@material-ui/lab/Alert';
-import { menuItems } from './MenuItems';
+import MenuItems from './MenuItems';
 import Copyright from './Copyright';
 import Home from './Home';
 import Explore from './Explore';
@@ -165,7 +165,7 @@ const Dashboard = () => {
                 </div>
                 <Divider />
                 <List>
-                    {menuItems}
+                    <MenuItems />
                 </List>
                 <Divider />
                 <List>Something else</List>
