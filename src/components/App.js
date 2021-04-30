@@ -15,6 +15,7 @@ const App = () => {
                     </Route>
                     <PrivateRoute path="/home" component={Dashboard} />
                     <PrivateRoute path="/explore" component={Dashboard} />
+                    <PrivateRoute path="/profile" component={Dashboard} />
                     <Route path="/sign-in" component={SignIn} />
                     <Route path="/sign-up" component={SignUp} />
                 </Switch>
