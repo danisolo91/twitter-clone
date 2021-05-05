@@ -38,16 +38,16 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     dateIcon: {
-        fontSize: 16, 
+        fontSize: 16,
         marginRight: theme.spacing(0.5),
-    }
+    },
 }));
 
 const Profile = () => {
     const classes = useStyles();
     const { currentUser } = useAuth();
-    const [ joinDate, setJoinDate ] = useState(null);
-    
+    const [joinDate, setJoinDate] = useState(null);
+
     useEffect(() => {
         let date = new Date(currentUser.metadata.creationTime);
         date = 'Joined ' + date.toLocaleString('en', { month: 'long' }) + ' ' + date.getFullYear();
@@ -64,9 +64,6 @@ const Profile = () => {
                     <div>
                         <Typography component="div" variant="h5">
                             {currentUser.displayName}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" gutterBottom>
-                            @Daniel32165
                         </Typography>
                         <Typography variant="caption" className={classes.joinDate}>
                             <DateRangeIcon className={classes.dateIcon} />{joinDate}
