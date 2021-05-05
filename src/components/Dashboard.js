@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Route, useHistory } from 'react-router-dom';
+import { Route, useHistory, Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
@@ -15,16 +14,18 @@ import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import MenuIcon from '@material-ui/icons/Menu';
+import SettingsIcon from '@material-ui/icons/Settings';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import Alert from '@material-ui/lab/Alert';
 import MenuItems from './MenuItems';
-import Copyright from './Copyright';
 import Home from './Home';
 import Explore from './Explore';
 import Profile from './Profile';
 import useAuth from '../hooks/useAuth';
+import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import Settings from './Settings';
 
 const drawerWidth = 240;
 
@@ -169,7 +170,14 @@ const Dashboard = () => {
                     <MenuItems />
                 </List>
                 <Divider />
-                <List>Something else</List>
+                <List>
+                    <ListItem button component={RouterLink} to="/settings">
+                        <ListItemIcon>
+                            <SettingsIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Settings" />
+                    </ListItem>
+                </List>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
@@ -179,10 +187,8 @@ const Dashboard = () => {
                         <Route path="/home" component={Home} />
                         <Route path="/explore" component={Explore} />
                         <Route path="/profile" component={Profile} />
+                        <Route path="/settings" component={Settings} />
                     </Grid>
-                    <Box pt={4}>
-                        <Copyright />
-                    </Box>
                 </Container>
             </main>
         </div>
