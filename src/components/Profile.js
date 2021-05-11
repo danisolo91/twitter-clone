@@ -1,22 +1,19 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import PersonIcon from '@material-ui/icons/Person';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import { Avatar, Button, Link, Tab, Tabs, Typography } from '@material-ui/core';
+import { Button, Link, Tab, Tabs, Typography } from '@material-ui/core';
 import useAuth from '../hooks/useAuth';
 import { useEffect, useState } from 'react';
 import TabPanel from './TabPanel';
+import Tweet from './Tweet';
+import Avatar from './Avatar';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
-    },
-    large: {
-        width: theme.spacing(15),
-        height: theme.spacing(15),
     },
     headerContainer: {
         padding: theme.spacing(2),
@@ -73,9 +70,7 @@ const Profile = () => {
             <Paper className={classes.paper}>
                 <div className={classes.headerContainer}>
                     <div className={classes.headerTop}>
-                        <Avatar src="https://source.unsplash.com/random" className={classes.large}>
-                            <PersonIcon />
-                        </Avatar>
+                        <Avatar large={true} />
                         <div>
                             <Typography component="div" variant="h5">
                                 {currentUser.displayName}
@@ -113,13 +108,17 @@ const Profile = () => {
                     </Tabs>
                 </Paper>
                 <TabPanel value={tab} index={0}>
-                    Tweets
+                    <Tweet />
+                    <Tweet media={true} />
+                    <Tweet />
                 </TabPanel>
                 <TabPanel value={tab} index={1}>
-                    Replies
+                    <Tweet media={true} />
+                    <Tweet media={true} />
                 </TabPanel>
                 <TabPanel value={tab} index={2}>
-                    Likes
+                    <Tweet />
+                    <Tweet />
                 </TabPanel>
             </Paper>
         </Grid>
